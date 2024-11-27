@@ -28,7 +28,7 @@ public class Item {
     private Set<Bid> bids = new HashSet<>();
 
     public Set<Bid> getBids() {
-        return Collections.unmodifiableSet(bids);
+        return Collections.unmodifiableSet(bids); // should not return a modifiable collection
     }
 
     public void addBid(Bid bid) {
@@ -37,7 +37,7 @@ public class Item {
         if (bid.getItem() != null)
             throw new IllegalStateException("Bid is already assigned to an Item");
         bids.add(bid);
-        bid.setItem(this);
+        bid.setItem(this); // package-visible
     }
 
 

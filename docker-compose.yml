@@ -1,21 +1,13 @@
-# Use root/example as user/password credentials
 version: '3.1'
 
 services:
   db:
-    # image: focker.ir/mysql:8.0.40-debian
-    # restart: always
-    # environment:
-    #   MYSQL_ALLOW_EMPTY_PASSWORD: yes
-    # # (this is just an example, not intended to be a production configuration)
     image: focker.ir/mysql:8.0.40-debian
     restart: always
     ports:
       - 3306:3306
-    # networks:
-    #   - springapimysql-net  
     environment:
-      MYSQL_DATABASE: basics
-      MYSQL_USER: amila_one
-      MYSQL_PASSWORD: Amila_pw
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: CH02
+      MYSQL_USER: mdt
+      MYSQL_PASSWORD: mdt
