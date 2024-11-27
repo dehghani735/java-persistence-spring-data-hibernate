@@ -22,8 +22,11 @@ package com.manning.javapersistence.ch03.ex04;
 
 public class Bid {
 
+    // because there is no setItem(), hibernate would have to be configured to access
+    // the item field directly. so the field can't be final, so the class is not guaranteed to be immutable.
     private Item item;
 
+    // This constructor is needed for hibernate.
     public Bid() {
     }
 
