@@ -32,14 +32,16 @@ public class DeleteQueryTest extends SpringDataJpaApplicationTests {
 
     @Test
     void testDeleteByLevel() {
-        userRepository.deleteByLevel(2);
+        var deletedCount =userRepository.deleteByLevel(2);
+        System.out.println("simple: " + deletedCount);
         List<User> users = userRepository.findByLevel(2, Sort.by("username"));
         assertEquals(0, users.size());
     }
 
     @Test
     void testDeleteBulkByLevel() {
-        userRepository.deleteBulkByLevel(2);
+        var deletedCount =userRepository.deleteBulkByLevel(2);
+        System.out.println("bulk: " + deletedCount);
         List<User> users = userRepository.findByLevel(2, Sort.by("username"));
         assertEquals(0, users.size());
     }

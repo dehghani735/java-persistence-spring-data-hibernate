@@ -108,7 +108,9 @@ public class MetamodelTest {
         Root<Item> fromItem = query.from(Item.class);
         Path<String> namePath = fromItem.get("name");
         query.where(cb.like(namePath, cb.parameter(String.class, "pattern")));
-        List<Item> items = em.createQuery(query).setParameter("pattern", "%Item 1%").getResultList();
+        List<Item> items = em.createQuery(query)
+                .setParameter("pattern", "%Item 1%")
+                .getResultList();
         assertAll(() -> assertEquals(1, items.size()),
                 () -> assertEquals("Item 1", items.iterator().next().getName()));
     }
@@ -124,7 +126,9 @@ public class MetamodelTest {
         Root<Item> fromItem = query.from(Item.class);
         Path<String> namePath = fromItem.get(Item_.name);
         query.where(cb.like(namePath, cb.parameter(String.class, "pattern")));
-        List<Item> items = em.createQuery(query).setParameter("pattern", "%Item 1%").getResultList();
+        List<Item> items = em.createQuery(query)
+                .setParameter("pattern", "%Item 1%")
+                .getResultList();
         assertAll(() -> assertEquals(1, items.size()),
                 () -> assertEquals("Item 1", items.iterator().next().getName()));
     }
